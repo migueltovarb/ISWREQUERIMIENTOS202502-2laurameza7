@@ -1,0 +1,26 @@
+{% extends 'finanzas/base.html' %}
+{% block content %}
+<div class="container">
+    <h1>Panel de Control</h1>
+    <div class="resumen">
+        <div class="card ingreso">
+            <h2>Total Ingresos</h2>
+            <p>${{ total_ingresos }}</p>
+        </div>
+        <div class="card gasto">
+            <h2>Total Gastos</h2>
+            <p>${{ total_gastos }}</p>
+        </div>
+        <div class="card saldo">
+            <h2>Saldo</h2>
+            <p>${{ saldo }}</p>
+        </div>
+    </div>
+    <div class="acciones">
+        <a href="{% url 'ingresos' %}" class="btn">Registrar Ingreso</a>
+        <a href="{% url 'gastos' %}" class="btn">Registrar Gasto</a>
+        <a href="{% url 'categorias' %}" class="btn">Categorías</a>
+        <a href="{% url 'informe' %}" class="btn">Informe</a>
+    </div>
+</div>
+{% endblock %}

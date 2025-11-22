@@ -1,0 +1,29 @@
+{% extends 'finanzas/base.html' %}
+{% block content %}
+<div class="container">
+    <h2>Informe Financiero</h2>
+    <table class="tabla-informe">
+        <thead>
+            <tr>
+                <th>Categoría</th>
+                <th>Tipo</th>
+                <th>Total</th>
+                <th>Visual</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for nombre, info in resumen.items %}
+            <tr>
+                <td>{{ nombre }}</td>
+                <td>{{ info.tipo }}</td>
+                <td>${{ info.total }}</td>
+                <td>
+                    <div style="background: {% if info.tipo == 'ingreso' %}#b2f7ef{% else %}#ffd6e0{% endif %}; height: 18px; border-radius: 6px; min-width: 10px; width: {{ info.total|floatformat:0|add:'1' }}px; max-width: 180px;"></div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/" class="btn">Volver al Panel</a>
+</div>
+{% endblock %}

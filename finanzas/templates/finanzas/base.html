@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monify - Control de Gastos</title>
+    <link rel="stylesheet" href="/static/finanzas/estilos.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="/">Monify</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/">Panel</a></li>
+                <li><a href="/ingresos/">Ingresos</a></li>
+                <li><a href="/gastos/">Gastos</a></li>
+                <li><a href="/categorias/">Categorías</a></li>
+                <li><a href="/informe/">Informe</a></li>
+                <li><a href="/perfil/">Perfil</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-left">
+                <p>&copy; 2025 Monify</p>
+                <p>Hecho con <span style="color:#e25555;">&#10084;</span> para tus finanzas</p>
+            </div>
+            <div class="footer-right">
+                <a href="#" title="Instagram" class="footer-icon">&#x1F4F7;</a>
+                <a href="#" title="Twitter" class="footer-icon">&#x1F426;</a>
+                <a href="#" title="Facebook" class="footer-icon">&#x1F4F1;</a>
+                <span class="footer-credit">Diseño por Monify Team</span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,32 @@
+{% extends 'finanzas/base.html' %}
+{% block content %}
+<div class="container">
+    <h2>Registrar Ingreso</h2>
+    {% if mensaje %}
+        <div class="alert alert-success">{{ mensaje }}</div>
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        <label>Cantidad:</label>
+        <input type="number" step="0.01" name="cantidad" required>
+        <label>Categoría:</label>
+        <select name="categoria" required>
+            {% for cat in categorias %}
+                <option value="{{ cat.id }}">{{ cat.nombre }}</option>
+            {% endfor %}
+        </select>
+        <label>Descripción:</label>
+        <input type="text" name="descripcion">
+        <button type="submit" class="btn">Guardar</button>
+    </form>
+    <h3>Ingresos recientes</h3>
+    <ul>
+        {% for ingreso in ingresos %}
+            <li>${{ ingreso.cantidad }} - {{ ingreso.categoria.nombre }} ({{ ingreso.fecha }})</li>
+        {% empty %}
+            <li>No hay ingresos registrados.</li>
+        {% endfor %}
+    </ul>
+    <a href="/" class="btn">Volver al Panel</a>
+</div>
+{% endblock %}

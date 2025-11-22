@@ -1,0 +1,26 @@
+{% extends 'finanzas/base.html' %}
+{% block content %}
+<div class="container">
+    <h2>Categorías</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label>Nombre:</label>
+        <input type="text" name="nombre" required>
+        <label>Tipo:</label>
+        <select name="tipo" required>
+            <option value="ingreso">Ingreso</option>
+            <option value="gasto">Gasto</option>
+        </select>
+        <button type="submit" class="btn">Agregar</button>
+    </form>
+    <h3>Lista de Categorías</h3>
+    <ul>
+        {% for cat in categorias %}
+            <li>{{ cat.nombre }} ({{ cat.tipo }})</li>
+        {% empty %}
+            <li>No hay categorías registradas.</li>
+        {% endfor %}
+    </ul>
+    <a href="/" class="btn">Volver al Panel</a>
+</div>
+{% endblock %}
